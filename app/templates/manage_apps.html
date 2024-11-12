@@ -1,0 +1,78 @@
+{% extends 'dashboard_base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<script>
+	document.getElementById('manage').classList.add('active');
+</script>
+
+<!-- ================== BEGIN page-css ================== -->
+<link href="static/plugins/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="static/plugins/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet">
+<link href="static/plugins/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet">
+<link href="static/plugins/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet">
+<!-- ================== END page-css ================== -->
+
+<!-- BEGIN #content -->
+<div id="content" class="app-content py-3">
+	<div class="data-management d-none" data-id="table">
+		<table class="table table-bordered table-xs w-100 fw-semibold text-nowrap mb-3" id="datatable">
+			<thead>
+				<tr>
+					<th class="no-sort"></th>
+					<th>UUID</th>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Status</th>
+					<th>Users</th>
+					<th>Posts</th>
+					<th>Uptime</th>
+					<th>CPUs</th>
+					<th>RAM</th>
+					<th>Storage</th>
+					<th>Network Usage</th>
+				</tr>
+			</thead>
+			<tbody class="text-body">
+				<tr>
+					<td><a href="https://example-social.iu.run" target="_blank"><i
+								class="fa fa-search fa-fw"></i></a></td>
+					<td>35614649-0407-4596-901a-62f3de8becaa</td>
+					<td>Example</td>
+					<td>An example container to demonstrate how this would work.</td>
+					<td class="text-danger"><i class="bi-check-circle-fill"></i></td>
+					<td>0</td>
+					<td>0</td>
+					<td>1d</td>
+					<td>1</td>
+					<td>16 MiB</td>
+					<td>20 MiB</td>
+					<td>44 MiB</td>
+				</tr>
+		</table>
+	</div>
+</div>
+<!-- END #content -->
+
+{% endblock %}
+
+{% block scripts %}
+<!-- ================== BEGIN page-js ================== -->
+<script src="static/plugins/datatables.net/js/dataTables.min.js"></script>
+<script src="static/plugins/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="static/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="static/plugins/jszip/dist/jszip.min.js"></script>
+<script src="static/plugins/pdfmake/build/pdfmake.min.js"></script>
+<script src="static/plugins/pdfmake/build/vfs_fonts.js"></script>
+<script src="static/plugins/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+<script src="static/plugins/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="static/plugins/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="static/plugins/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+<script src="static/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="static/plugins/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+<script src="static/plugins/datatables.net-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
+<script src="static/plugins/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js"></script>
+<script src="static/js/demo/page-data-management.demo.js"></script>
+<!-- ================== END page-js ================== -->
+{% endblock %}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- ================== BEGIN core-css ================== -->
+	<link href="static/css/vendor.min.css" rel="stylesheet">
+	<link href="static/css/app.min.css" rel="stylesheet">
+	<!-- ================== END core-css ================== -->
+
+	<!-- ================== BEGIN page-css ================== -->
+	<link href="static/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet">
+	<!-- ================== END page-css ================== -->
+
+</head>
+
+<body>
+	<!-- BEGIN #app -->
+	<div id="app" class="app app-with-top-nav app-without-sidebar">
+		<!-- BEGIN #header -->
+		<div id="header" class="app-header">
+			
+			
+			<!-- BEGIN desktop-toggler -->
+			<div class="desktop-toggler">
+				<button type="button" class="menu-toggler">
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</button>
+			</div>
+			<!-- BEGIN desktop-toggler -->
+			<!-- BEGIN mobile-toggler -->
+			<div class="mobile-toggler">
+				<button type="button" class="menu-toggler" data-toggle="app-top-nav-mobile">
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</button>
+			</div>
+			<!-- END mobile-toggler -->
+			
+			
+			<!-- BEGIN brand -->
+			<div class="brand">
+				<a href="/dashboard" class="brand-logo">
+					<span class="brand-img">
+						<span class="brand-img-text text-theme">SM</span>
+					</span>
+					<span class="brand-text">SMPC</span>
+				</a>
+			</div>
+			<!-- END brand -->
+			
+			<!-- BEGIN menu -->
+			<div class="menu">
+				<div class="menu-item dropdown dropdown-mobile-full">
+					<a href="#" data-bs-toggle="dropdown" data-bs-display="static" class="menu-link">
+						<div class="menu-img online">
+							<img src="{{ user.picture }}" alt="Profile" height="60">
+						</div>
+						<div class="menu-text d-sm-block d-none w-170px">{{ user.email }}</div>
+					</a>
+					<div class="dropdown-menu dropdown-menu-end me-lg-3 fs-11px mt-1">
+						<a class="dropdown-item d-flex align-items-center" href="profile.html">PROFILE <i class="bi bi-person-circle ms-auto text-theme fs-16px my-n1"></i></a>
+						<a class="dropdown-item d-flex align-items-center" href="settings.html">SETTINGS <i class="bi bi-gear ms-auto text-theme fs-16px my-n1"></i></a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item d-flex align-items-center" href="page_login.html">LOGOUT <i class="bi bi-toggle-off ms-auto text-theme fs-16px my-n1"></i></a>
+					</div>
+				</div>
+			</div>
+			<!-- END menu -->
+			
+			<!-- BEGIN menu-search -->
+			<form class="menu-search" method="POST" name="header_search_form">
+				<div class="menu-search-container">
+					<div class="menu-search-icon"><i class="bi bi-search"></i></div>
+					<div class="menu-search-input">
+						<input type="text" class="form-control form-control-lg" placeholder="Search menu...">
+					</div>
+					<div class="menu-search-icon">
+						<a href="#" data-toggle-class="app-header-menu-search-toggled" data-toggle-target=".app"><i class="bi bi-x-lg"></i></a>
+					</div>
+				</div>
+			</form>
+			<!-- END menu-search -->
+		</div>
+		<!-- END #header -->
+		
+		<!-- BEGIN #top-nav -->
+		<div id="top-nav" class="app-top-nav">
+			<!-- BEGIN menu -->
+			<div class="menu">
+				<div class="menu-item" id="dashboard">
+					<a href="/dashboard" class="menu-link">
+						<span class="menu-icon"><i class="bi bi-cpu"></i></span>
+						<span class="menu-text">Dashboard</span>
+					</a>
+				</div>
+				<div class="menu-item" id="manage">
+					<a href="/manage" class="menu-link">
+						<span class="menu-icon"><i class="bi bi-bar-chart"></i></span>
+						<span class="menu-text">Manage Apps</span>
+					</a>
+				</div>
+				<div class="menu-item" id="explore">
+					<a href="/explore" class="menu-link">
+						<span class="menu-icon"><i class="bi bi-columns-gap"></i></span>
+						<span class="menu-text">Explore</span>
+					</a>
+				</div>
+				<div class="menu-item" id="profile">
+					<a href="/profile" class="menu-link">
+						<span class="menu-icon"><i class="bi bi-people"></i></span>
+						<span class="menu-text">Profile</span>
+					</a>
+				</div>
+				<div class="menu-item" id="settings">
+					<a href="/settings" class="menu-link">
+						<span class="menu-icon"><i class="bi bi-gear"></i></span>
+						<span class="menu-text">Settings</span>
+					</a>
+				</div>
+				<div class="menu-item" id="docs">
+					<a href="/docs" class="menu-link">
+						<span class="menu-icon"><i class="bi bi-gem"></i></span>
+						<span class="menu-text">Docs</span>
+					</a>
+				</div>
+				<div class="menu-item menu-control menu-control-start">
+					<a href="javascript:;" class="menu-link" data-toggle="app-top-menu-prev"><i class="bi bi-caret-left"></i></a>
+				</div>
+				<div class="menu-item menu-control menu-control-end">
+					<a href="javascript:;" class="menu-link" data-toggle="app-top-menu-next"><i class="bi bi-caret-right"></i></a>
+				</div>
+			</div>
+			<!-- END menu -->
+		</div>
+		<!-- END #top-nav -->
+
+		<!-- BEGIN content -->
+		{% block content %} {% endblock %}
+		<!-- END content -->
+
+		<!-- BEGIN btn-scroll-top -->
+		<a href="#" data-toggle="scroll-to-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+		<!-- END btn-scroll-top -->
+	</div>
+	<!-- END #app -->
+
+	<!-- ================== BEGIN core-js ================== -->
+	<script src="static/js/vendor.min.js"></script>
+	<script src="static/js/app.min.js"></script>
+	<!-- ================== END core-js ================== -->
+
+	{% block scripts %} {% endblock %}
+</body>
+
+</html>

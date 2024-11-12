@@ -1,0 +1,24 @@
+services:
+  # Caddy reverse proxy service
+  caddy:
+    image: lucaslorentz/caddy-docker-proxy:ci-alpine
+    container_name: caddy
+    environment:
+      - CADDY_INGRESS_NETWORKS=caddy
+    networks:
+      - caddy
+    ports:
+      - "80:80"    # HTTP port
+      - "443:443"  # HTTPS port
+    volumes:
+      - caddy_data:/data        # Persistent storage for certificates
+      - caddy_config:/config    # Persistent storage for configuration
+      - /var/run/docker.sock:/var/run/docker.sock  # For Docker API access
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  caddy:
+    external: true

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+	<meta charset="utf-8">
+	<title>Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- ================== BEGIN core-css ================== -->
+	<link href="static/css/vendor.min.css" rel="stylesheet">
+	<link href="static/css/app.min.css" rel="stylesheet">
+	<!-- ================== END core-css ================== -->
+
+	<!-- ================== BEGIN page-css ================== -->
+	<link href="static/plugins/lity/dist/lity.min.css" rel="stylesheet">
+	<!-- ================== END page-css ================== -->
+
+</head>
+
+<body>
+	<!-- BEGIN #app -->
+	<div id="app" class="app">
+		<!-- BEGIN #header -->
+		<div id="header" class="app-header navbar navbar-expand-lg p-0">
+			<div class="container-xxl px-3 px-lg-5">
+				<button class="navbar-toggler border-0 p-0 me-3 fs-24px shadow-none" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarContent">
+					<span class="h-2px w-25px bg-gray-500 d-block mb-1"></span>
+					<span class="h-2px w-25px bg-gray-500 d-block"></span>
+				</button>
+				<a class="navbar-brand d-flex align-items-center position-relative me-auto brand px-0 w-auto"
+					href="/">
+					<span class="brand-logo d-flex">
+						<span class="brand-img">
+							<span class="brand-img-text text-theme">SM</span>
+						</span>
+						<span class="brand-text">SMPC</span>
+					</span>
+				</a>
+				<div class="collapse navbar-collapse" id="navbarContent">
+					<div class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase small fw-semibold">
+						<div class="nav-item me-2">
+							<a href="/" class="nav-link link-body-emphasis">Home</a>
+						</div>
+						<div class="nav-item me-2">
+							<a href="#about" class="nav-link link-body-emphasis">Docs</a>
+						</div>
+						<div class="nav-item me-2">
+							<a href="#about" class="nav-link link-body-emphasis">Apps</a>
+						</div>
+					</div>
+				</div>
+				{% if not user %}
+				<div class="ms-3">
+					<a href="/sign-in"
+						class="btn btn-outline-theme btn-sm fw-semibold text-uppercase px-2 py-1 fs-10px text-nowrap">Get
+						started <i class="fa fa-arrow-right ms-1"></i></a>
+				</div>
+				{% else %}
+				<div class="ms-3">
+					<a href="/sign-out"
+						class="btn btn-outline-theme btn-sm fw-semibold text-uppercase px-2 py-1 fs-10px text-nowrap">Sign Out
+						<i class="fa fa-arrow-right ms-1"></i></a>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+		<!-- END #header -->
+
+		<!-- BEGIN #home -->
+		<div id="home" class="py-5 position-relative bg-body bg-opacity-50" data-bs-theme="dark">
+			<!-- BEGIN container -->
+			<div class="container-xxl p-3 p-lg-5 mb-0">
+				<!-- BEGIN div-hero-content -->
+				<div class="div-hero-content z-3 position-relative">
+					<!-- BEGIN row -->
+					<div class="row">
+						<!-- BEGIN col-8 -->
+						<div class="col-lg-6">
+							<!-- BEGIN hero-title-desc -->
+							<h1 class="display-6 fw-600 mb-2 mt-4">
+								The Social Media Problem Case
+							</h1>
+							<div class="fs-18px text-body text-opacity-75 mb-4">
+								Your job is to make the most performant, secure, and user-friendly social media platform
+								possible. You're allowed to use any technology, but it must be able to be used within a
+								single Docker container! Good luck and have fun!
+							</div>
+							<!-- END hero-title-desc -->
+
+							<div class="text-body text-opacity-35 text-center2 mb-4">
+								<i class="fab fa-bootstrap fa-2x fa-fw"></i>
+								<i class="fab fa-node-js fa-2x fa-fw"></i>
+								<i class="fab fa-vuejs fa-2x fa-fw"></i>
+								<i class="fab fa-angular fa-2x fa-fw"></i>
+								<i class="fab fa-react fa-2x fa-fw"></i>
+								<i class="fab fa-laravel fa-2x fa-fw"></i>
+								<i class="fab fa-npm fa-2x fa-fw"></i>
+							</div>
+
+							{% if not user %}
+							<div class="mb-2">
+								<a href="/sign-in" class="btn btn-lg btn-outline-white px-3">Get Started <i
+										class="fa fa-arrow-right ms-2 opacity-5"></i></a>
+							</div>
+							{% else %}
+							<div class="mb-2">
+								<a href="/dashboard" class="btn btn-lg btn-outline-white px-3">Go to Dashboard <i
+										class="fa fa-arrow-right ms-2 opacity-5"></i></a>
+							</div>
+							{% endif %}
+
+							<hr class="my-4" />
+
+							<!-- BEGIN row -->
+							<div class="row text-body mt-4 mb-4">
+								<!-- BEGIN col-4 -->
+								<div class="col-6 mb-3 mb-lg-0">
+									<div class="d-flex align-items-center">
+										<div>
+											<div class="fw-500 mb-0 h3">{{ num_users }}</div>
+											<div class="fw-500 text-body text-opacity-75">Users Registered</div>
+										</div>
+									</div>
+								</div>
+								<!-- END col-4 -->
+								<!-- BEGIN col-4 -->
+								<div class="col-6">
+									<div class="d-flex align-items-center">
+										<div>
+											<div class="fw-500 mb-0 h3">11 / 17 / 24</div>
+											<div class="fw-500 text-body text-opacity-75">Judging Begins</div>
+										</div>
+									</div>
+								</div>
+								<!-- END col-4 -->
+							</div>
+							<!-- END row -->
+						</div>
+						<!-- END col-8 -->
+					</div>
+					<!-- END row -->
+				</div>
+				<!-- END div-hero-content -->
+
+				<div
+					class="position-absolute top-0 bottom-0 end-0 w-50 p-5 z-2 overflow-hidden d-lg-flex align-items-center d-none">
+					<img class="w-100 d-block shadow-lg" alt="HUD" src="static/media/placeholder.webp">
+				</div>
+			</div>
+			<!-- END container -->
+			<div class="position-absolute bg-size-cover bg-position-center d-none2 bg-no-repeat top-0 start-0 w-100 h-100"
+				style="background-image: url(static/img/landing/cover.jpg);"></div>
+			<div class="position-absolute top-0 start-0 d-none2 w-100 h-100 opacity-95"
+				style="background: var(--bs-body-bg-gradient);"></div>
+			<div class="position-absolute top-0 start-0 d-none2 w-100 h-100 opacity-95"
+				style="background-image: url(static/css/images/pattern-dark.png); background-size: var(--bs-body-bg-image-size);">
+			</div>
+		</div>
+		<!-- END #home -->
+
+		<!-- BEGIN #about -->
+		<div id="about" class="py-5 bg-component">
+			<div class="container-xxl p-3 p-lg-5 text-center">
+				<h1 class="mb-3">Requirements</h1>
+				<p class="fs-16px text-body text-opacity-50 mb-5">Your social media website must be compliant on certain
+					fronts for testing. These will hopefully give you valuable insight into full-stack web development
+					and general software engineering practices!</p>
+				<div class="row text-start g-3 gx-lg-5 gy-lg-4">
+					<div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+						<div
+							class="w-50px h-50px bg-theme bg-opacity-15 text-theme fs-32px d-flex align-items-center justify-content-center">
+							<iconify-icon icon="solar:monitor-smartphone-line-duotone"></iconify-icon>
+						</div>
+						<div class="flex-1 ps-3">
+							<h4>Responsive Design</h4>
+							<p class="mb-0">Your website must be usable on mobile, tablet and desktop environments.
+								You're allowed to use any framework or library out there so don't get too caught up on
+								this.</p>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+						<div
+							class="w-50px h-50px bg-theme bg-opacity-15 text-theme fs-32px d-flex align-items-center justify-content-center">
+							<iconify-icon icon="solar:settings-line-duotone"></iconify-icon>
+						</div>
+						<div class="flex-1 ps-3">
+							<h4>Admin APIs</h4>
+							<p class="mb-0">You must provide an admin API endpoint for creating and managing users and
+								posts. These will be used for benchmarking and testing your website! Read the docs for
+								more information on what to do.</p>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+						<div
+							class="w-50px h-50px bg-theme bg-opacity-15 text-theme fs-32px d-flex align-items-center justify-content-center">
+							<iconify-icon icon="solar:bolt-line-duotone"></iconify-icon>
+						</div>
+						<div class="flex-1 ps-3">
+							<h4>High Performance</h4>
+							<p class="mb-0">On the frontend, page load times will be used as a metric for judging. Make
+								sure your backend and frontend are well designed and cohesive enough to provide a smooth
+								UX.</p>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+						<div
+							class="w-50px h-50px bg-theme bg-opacity-15 text-theme fs-32px d-flex align-items-center justify-content-center">
+							<iconify-icon icon="solar:lock-keyhole-line-duotone"></iconify-icon>
+						</div>
+						<div class="flex-1 ps-3">
+							<h4>Secure</h4>
+							<p class="mb-0">You must provide secure interfaces to all endpoints that need to be secured.
+								No storing unhashed passwords or RCEs are allowed!</p>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+						<div
+							class="w-50px h-50px bg-theme bg-opacity-15 text-theme fs-32px d-flex align-items-center justify-content-center">
+							<iconify-icon icon="solar:dialog-2-line-duotone"></iconify-icon>
+						</div>
+						<div class="flex-1 ps-3">
+							<h4>Community</h4>
+							<p class="mb-0">You must have support for posts, comments, followers and a customized feed
+								for each user.</p>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+						<div
+							class="w-50px h-50px bg-theme bg-opacity-15 text-theme fs-32px d-flex align-items-center justify-content-center">
+							<iconify-icon icon="solar:help-line-duotone"></iconify-icon>
+						</div>
+						<div class="flex-1 ps-3">
+							<h4>Support</h4>
+							<p class="mb-0">You must have a way to manage users, posts, and the general platform via an
+								admin dashboard. It doesn't have to be special, it just has to exist.</p>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+						<div
+							class="w-50px h-50px bg-theme bg-opacity-15 text-theme fs-32px d-flex align-items-center justify-content-center">
+							<iconify-icon icon="solar:tuning-line-duotone"></iconify-icon>
+						</div>
+						<div class="flex-1 ps-3">
+							<h4>Scalable Infrastructure</h4>
+							<p class="mb-0">Another key thing we're looking for is the ability to scale well. Make sure
+								you're being performant with your queries and web server configuration.</p>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+						<div
+							class="w-50px h-50px bg-theme bg-opacity-15 text-theme fs-32px d-flex align-items-center justify-content-center">
+							<iconify-icon icon="solar:widget-5-line-duotone"></iconify-icon>
+						</div>
+						<div class="flex-1 ps-3">
+							<h4>Intuitive UI/UX</h4>
+							<p class="mb-0">Be creative! Bonus points for going into a special style or through
+								interactive animations that're tied into your web application.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END #about -->
+
+		
+		<!-- BEGIN #footer -->
+		<div id="footer" class="py-5 bg-gray-900 bg-opacity-75 text-body text-opacity-75" data-bs-theme="dark">
+			<div class="container-xxl px-3 px-lg-5">
+				<div class="row gx-lg-5 gx-3 gy-lg-4 gy-3">
+					<div class="col-lg-3 col-md-6">
+						<div class="mb-3">
+							<div class="h2">Social Media Problem Case</div>
+						</div>
+						<p class="mb-4">
+							In doing the Social Media Problem Case, you're going to gain the confidence to be able to
+							build whatever you want on the web. Good luck and have fun!
+						</p>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<h5>Quick Links</h5>
+						<ul class="list-unstyled">
+							<li class="mb-3px"><a href="#"
+									class="text-decoration-none text-body text-opacity-75">Newsroom</a></li>
+							<li class="mb-3px"><a href="#"
+									class="text-decoration-none text-body text-opacity-75">Company Info</a></li>
+									<li class="mb-3px"><a href="#"
+										class="text-decoration-none text-body text-opacity-75">Careers</a></li>
+										<li class="mb-3px"><a href="#" class="text-decoration-none text-body text-opacity-75">For
+											Investors</a></li>
+							<li class="mb-3px"><a href="#" class="text-decoration-none text-body text-opacity-75">Brand
+									Resources</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<h5>Resources</h5>
+						<ul class="list-unstyled">
+							<li class="mb-3px"><a href="#"
+									class="text-decoration-none text-body text-opacity-75">Documentation</a></li>
+							<li class="mb-3px"><a href="#"
+									class="text-decoration-none text-body text-opacity-75">Support</a></li>
+							<li class="mb-3px"><a href="#"
+									class="text-decoration-none text-body text-opacity-75">FAQs</a></li>
+							<li class="mb-3px"><a href="#"
+									class="text-decoration-none text-body text-opacity-75">Community</a></li>
+							<li class="mb-3px"><a href="#"
+									class="text-decoration-none text-body text-opacity-75">Tutorials</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<h5>Help Center</h5>
+						<ul class="list-unstyled">
+							<li class="mb-3px"><a href="#"
+									class="text-decoration-none text-body text-opacity-75">Discord</a></li>
+							<li class="mb-3px"><a href="#" class="text-decoration-none text-body text-opacity-75">Live
+									Chat Support</a></li>
+							<li class="mb-3px"><a href="#" class="text-decoration-none text-body text-opacity-75">Portal
+								Help Center</a></li>
+								<li class="mb-3px"><a href="#" class="text-decoration-none text-body text-opacity-75">Email
+									Support</a></li>
+								</ul>
+							</div>
+						</div>
+						<hr class="text-body text-opacity-50">
+				<div class="row">
+					<div class="col-sm-6 mb-3 mb-lg-0">
+						<div class="footer-copyright-text">&copy; 2024 Calloway Sutton | All Rights Reserved
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END #footer -->
+		
+	</div>
+	<!-- END #app -->
+	
+	<!-- Bootstrap 5 Toasts -->
+	<div class="toasts-container" style="z-index: 1050;">
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		{% for message in messages %}
+		<div class="toast fade mb-3" data-autohide="false">
+			<div class="toast-header">
+				<i class="far fa-bell text-muted me-2"></i>
+				<strong class="me-auto">Information</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+			</div>
+			<div class="toast-body">
+				{{ message }}
+			</div>
+		</div>
+		{% endfor %}
+		{% endif %}
+		{% endwith %}
+	</div>
+
+	<!-- ================== BEGIN core-js ================== -->
+	<script src="static/js/vendor.min.js"></script>
+	<script src="static/js/app.min.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var toastElements = document.querySelectorAll('.toast');
+			toastElements.forEach(function (toastEl) {
+				var toast = new bootstrap.Toast(toastEl);
+				toast.show();
+			});
+		});
+	</script>	
+	<!-- ================== END core-js ================== -->
+	
+	<!-- ================== BEGIN page-js ================== -->
+	<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+	<script src="static/plugins/lity/dist/lity.min.js"></script>
+	<!-- ================== END page-js ================== -->
+
+</body>
+
+</html>

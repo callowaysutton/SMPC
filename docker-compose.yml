@@ -1,0 +1,37 @@
+services:
+  # Postgres service
+  db:
+    image: postgres:latest
+    container_name: db
+    networks:
+      - caddy
+    env_file:
+      - .env
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+# Your application service
+  app:
+    build:
+      context: .  # The directory with your Dockerfile
+      dockerfile: Dockerfile
+    container_name: app
+    networks:
+      - caddy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # For Docker API access
+    labels:
+      caddy: social.iu.run  # Domain for your app (adjust if needed)
+      caddy.reverse_proxy: "{{upstreams 5000}}"
+    init: true
+    depends_on:
+      - db
+    environment:
+      DATABASE_URI: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+
+volumes:
+  db_data:
+
+networks:
+  caddy:
+    external: true
